@@ -28,16 +28,16 @@ class ArticleWidget extends StatelessWidget {
         height: MediaQuery.of(context).size.width / 2.2,
         child: Row(
           children: [
-            _buildImage(context),
-            _buildTitleAndDescription(),
-            _buildRemovableArea(),
+            _image(context),
+            _titleAndDescription(),
+            _removableArea(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildImage(BuildContext context) {
+  Widget _image(BuildContext context) {
     return CachedNetworkImage(
         imageUrl: article!.urlToImage,
         imageBuilder: (context, imageProvider) => Padding(
@@ -84,7 +84,7 @@ class ArticleWidget extends StatelessWidget {
             ));
   }
 
-  Widget _buildTitleAndDescription() {
+  Widget _titleAndDescription() {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 7),
@@ -135,7 +135,7 @@ class ArticleWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRemovableArea() {
+  Widget _removableArea() {
     if (isRemovable!) {
       return GestureDetector(
         onTap: _onRemove,
